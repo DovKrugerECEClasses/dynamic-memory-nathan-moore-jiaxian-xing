@@ -33,14 +33,54 @@ R
 BBB
    BBBBB
         BBBBBB
-
-
-	 */
+	*/
 }
 
-class bitmap{
+class Bitmap{
+private:
+	double width, height;
+	double* Matrix;
+pubilc:
+	Bitmap(int across, int high) : height(high), width(across), Matrix(new Array(height*width)){}
+	~Bitmap(){
+		delete [] Matrix;
+	}
+	void line(int x0, int y0, int x1, int y1, Color rgba){
+
+	}
+	horizLine(int x0, int x1, int y, Color rgba){
+		for(int i = x0; i <x2; i++)
+			b[y*width + i] = rgba.getColor();
+	}
+	vertLine(int x, int y0, int y1, Color rgba){
+		for(int i = y0; i <y2; i++)
+			b[y*i + x] = rgba.getColor();
+	}
+	fillRect(int x, int y, int w, int h, Color rgba){
+		for(int i = 0 , i < h; i++)
+			horizLine(int x, int x+w, int y+i, Color rgba);
+	}
+	drawRect(int x, int y, int w, int h, Color rgba){
+		horizLine(int x, int x+w, int y, Color rgba);
+		horizLine(int x, int x+w, int y+h, Color rgba);
+		vertLine(int x, int y, int y+h, Color rgba);
+		vertLine(int x+w, int y, int y+h, Color rgba);
+	}
+	ellipse(int x, int y, int w, int h, Color rgba){
+
+	}
+
+	friend ostream& operator <<(ostream& s, const Bitmap& b){
+        for(int i=0; i<b.height; i++){
+            for(int j=0; j<b.width; j++){
+                s << b.Matrix[i*b.width+j] << " ";
+            }
+            s << '\n';
+        }
+        return s;
+    }
 	
-}
+};
 
 class Color {
 private:
