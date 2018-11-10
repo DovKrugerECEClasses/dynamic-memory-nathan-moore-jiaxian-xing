@@ -9,11 +9,18 @@ public:
 	}
 
 	char getColor(){
-		if(rgba = 4278190081)return'R';
-		if(rgba = 65281)return'G';
-		if(rgba = 16711681)return'B';
-		if(rgba = 4294967041)return'W';
-		if(rgba = 1)return'B';
+		if(rgba == 4278190081)
+			return'R';
+		else if(rgba == 65281)
+			return'G';
+		else if(rgba == 16711681)
+			return'B';
+		else if(rgba == 4294967041)
+			return'W';
+		else if(rgba == 1)
+			return'B';
+		else
+			return'_';
 	}
 
 };
