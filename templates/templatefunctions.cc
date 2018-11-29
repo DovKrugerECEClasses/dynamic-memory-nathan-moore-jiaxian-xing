@@ -1,4 +1,32 @@
+#include <string>
+#include <iostream>
 
+template<typename T>
+void sort(T x, int l){
+    for (int j = l-1; j > 0; j--)
+        for(int i = 0; i < j; i++)
+            if (x[i] > x[i+1]) swap(x[i], x[i+1]);
+}
+
+//template <typename T>
+//T& operator +(const T& a){
+//    return (this. > a.);
+//}
+
+template<typename T>
+void print(T x, int l){
+    for(int i=0; i <l; i++) std::cout << x[i];
+    std::cout << "\r\n";
+}
+
+template<typename T>
+T& sum(T x, int l){
+    T s;
+    for(int i =0; i < l; i++){
+        s = s + x[i];
+    }
+    return s;
+}
 
 int main() {
 	int a[] = {5, 4, 3, 1, 7, 8, 9, 2, 1};
@@ -15,5 +43,5 @@ int main() {
 	string c[] = {"yo", "ho", "test", "foo", "bar"};
 	sort(c, sizeof(c)/sizeof(string));
 	print(c, sizeof(c)/sizeof(string));
-	//TODO?	cout << sum(c, sizeof(c)/sizeof(string)) << '\n';
+	cout << sum(c, sizeof(c)/sizeof(string)) << '\n';
 }
