@@ -10,7 +10,7 @@ private:
 public:
 	Bitmap(int across, int high) : height(high), width(across), Matrix(new char[height*width]){
 		for (int i = 0; i < width * height; i++)
-			Matrix[i] = '?';
+			Matrix[i] = '.';
 	}
 	void line(int x0, int y0, int x1, int y1, Color c){
 		int dx = x1 - x0;
@@ -19,7 +19,7 @@ public:
 		double deltaerr = double(dy) / double(dx);
 		int y = y0;
 		for (int x = x0; x <= x1; ++x){
-			Matrix[y*width + x] = c.getColor();
+			Matrix[y*width + x ] = c.getColor();
 			error += deltaerr;
 			if (abs(error) >= 0.5){
 				y += 1;
@@ -28,11 +28,11 @@ public:
 		}
 	}
 	void horizLine(int x0, int x1, int y, Color c){
-		for(int i = x0; i <x1; i++)
+		for(int i = x0; i <=x1; i++)
 			Matrix[y*width + i] = c.getColor();
 	}
 	void vertLine(int x, int y0, int y1, Color c){
-		for(int i = y0; i <y1; i++)
+		for(int i = y0; i <=y1; i++)
 			Matrix[width*i + x] = c.getColor();
 	}
 	void fillRect(int x, int y, int w, int h, Color c){
