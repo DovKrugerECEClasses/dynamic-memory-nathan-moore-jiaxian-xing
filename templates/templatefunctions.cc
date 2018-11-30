@@ -1,26 +1,22 @@
 #include <string>
 #include <iostream>
+using namespace std;
 
 template<typename T>
-void sort(T x, int l){
+void sort(T x[], int l){
     for (int j = l-1; j > 0; j--)
         for(int i = 0; i < j; i++)
             if (x[i] > x[i+1]) swap(x[i], x[i+1]);
 }
 
-//template <typename T>
-//T& operator +(const T& a){
-//    return (this. > a.);
-//}
-
 template<typename T>
-void print(T x, int l){
-    for(int i=0; i <l; i++) std::cout << x[i];
-    std::cout << "\r\n";
+void print(T x[], int l){
+    for(int i=0; i <l; i++) cout << x[i];
+    cout << "\r\n";
 }
 
 template<typename T>
-T& sum(T x, int l){
+T sum(T x[], int l){
     T s;
     for(int i =0; i < l; i++){
         s = s + x[i];
