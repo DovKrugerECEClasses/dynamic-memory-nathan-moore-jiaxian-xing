@@ -107,7 +107,7 @@ public:
         file <<"fill\n";
         file.close();
     }
-    
+
     void setFont(string a, int b){
         ofstream file;
         file.open(file_Name, fstream::app);
@@ -116,7 +116,7 @@ public:
         file <<"setfont\n";
         file.close();
     }
-    
+
     void text(double a, double b, string c){
         ofstream file;
         file.open(file_Name, fstream::app);
