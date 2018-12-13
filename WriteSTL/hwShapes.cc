@@ -47,9 +47,13 @@ public:
 
     friend string operator +(const string& o,const Facet& f) {
         double ni, nj, nk;
-        ni =1;
-        nj =1;
-        nk =1;
+        double a=(f.b.y-f.a.y)*(f.c.z-f.a.z)-(f.c.y-f.a.y)*(f.b.z-f.a.z);
+        double b=(f.b.z-f.a.z)*(f.c.x-f.a.x)-(f.c.z-f.a.z)*(f.b.x-f.a.x);
+        double c=(f.b.x-f.a.x)*(f.c.y-f.a.y)-(f.c.x-f.a.x)*(f.b.y-f.a.y);
+        double mag=sqrt(a*a+b*b+c*c);
+        ni =a/mag;
+        nj =b/mag;
+        nk =c/mag;
         string s = o + "facet normal " + to_string(ni) +' '+ to_string(nj)+' ' + to_string(nk) + "\n"
                    + "\touter loop" + "\n"
                    + "\t\tvertex " + to_string(f.a.x)+' ' + to_string(f.a.y)+' ' + to_string(f.a.z) + "\n"
